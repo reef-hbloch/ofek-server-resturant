@@ -10,6 +10,9 @@ const SSLCommerzPayment = require('sslcommerz')
 const store_id = 'foodu630a1f4b5f276'
 const store_passwd = 'foodu630a1f4b5f276@ssl'
 
+// CR: Product controller is far more than a product controller.
+// CR: it is also checkout, review and payment gateway interface
+
 // create product
 const createProductController = async (req, res) => {
   try {
@@ -167,6 +170,7 @@ const orderController = async (req, res) => {
 const orderBySSLCommerz = async (req, res) => {
   try {
     const { checkOutInfo } = req.body
+    // CR: Magic Consts?
     const data = {
       total_amount: checkOutInfo.totalCost,
       currency: 'BDT',
